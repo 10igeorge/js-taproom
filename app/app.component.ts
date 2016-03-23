@@ -1,5 +1,6 @@
 import { Component } from 'angular2/core';
 import { Keg } from './keg.model';
+import { KegInfoComponent } from './keg-info.component';
 
 var KEGS: Keg[] = [
   { "id": 1, "pints": 124, "brewery": "Lagunitas", "name": "IPA", "abv": 6.2, "price": 4.99 },
@@ -9,6 +10,7 @@ var KEGS: Keg[] = [
 
 @Component({
   selector: 'my-app',
+  directives: [KegInfoComponent],
   template:`
     <div class="container">
       <h1>JavaScript Taproom</h1>
@@ -17,14 +19,9 @@ var KEGS: Keg[] = [
         <li *ngFor="#keg of kegs" (click)="onSelect(keg)">
           <span class="id">{{keg.id}}</span>
           {{keg.brewery}} {{keg.name}}
-        </li><br>
-      </ul>
-      <div *ngIf="selectedKeg">
-        <h4>{{selectedKeg.brewery}} {{selectedKeg.name}}</h4>
-        <p>{{selectedKeg.abv}}%</p>
-        <p>Price: $ {{selectedKeg.price}}</p>
-        <p>Pints remaining: {{selectedKeg.pints}}</p>
-      </div>
+        </li>
+      </ul><br>
+      <keg-info [keg]="selectedKeg"></keg-info>
     </div>
   `
 })
@@ -33,6 +30,7 @@ var KEGS: Keg[] = [
 
 export class AppComponent {
   public kegs = KEGS;
+
   onSelect(keg: Keg){
     this.selectedKeg = keg;
   }
