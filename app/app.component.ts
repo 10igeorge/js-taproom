@@ -1,6 +1,7 @@
 import { Component } from 'angular2/core';
 import { Keg } from './keg.model';
 import { KegInfoComponent } from './keg-info.component';
+import {EditKegInfoComponent} from './edit-keg-info.component';
 
 var KEGS: Keg[] = [
   { "id": 1, "pints": 124, "brewery": "Lagunitas", "name": "IPA", "abv": 6.2, "price": 4.99 },
@@ -10,7 +11,8 @@ var KEGS: Keg[] = [
 
 @Component({
   selector: 'my-app',
-  directives: [KegInfoComponent],
+  inputs: ['keg'],
+  directives: [KegInfoComponent, EditKegInfoComponent],
   template:`
     <div class="container">
       <h1>JavaScript Taproom</h1>
@@ -21,7 +23,8 @@ var KEGS: Keg[] = [
           {{keg.brewery}} {{keg.name}}
         </li>
       </ul><br>
-      <keg-info [keg]="selectedKeg"></keg-info>
+      <keg-info [keg]="selectedKeg"></keg-info><br><br>
+      <edit-keg-info [keg]="selectedKeg"></edit-keg-info>
     </div>
   `
 })
