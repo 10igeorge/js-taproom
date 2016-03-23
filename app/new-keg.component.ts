@@ -10,7 +10,7 @@ import {Keg} from './keg.model';
       <input placeholder="Brewery" #newBrewery><br>
       <input placeholder="Name" #newName><br>
       <input placeholder="ABV" #newABV><br>
-      <input placeholder="Price" #newPrice><br>
+      <input placeholder="Price" #newPrice><br><br>
       <button (click)="addKeg(newBrewery, newName, newABV, newPrice)" class="btn btn-warning">Tap!</button>
     </div>
   `

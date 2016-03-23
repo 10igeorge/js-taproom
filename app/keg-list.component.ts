@@ -21,8 +21,6 @@ import {NewKegComponent} from './new-keg.component';
   `
 })
 
-
-
 export class KegListComponent {
   public kegList: Keg[];
   public onKegSelect: EventEmitter<Keg>;
