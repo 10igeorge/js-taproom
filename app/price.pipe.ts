@@ -9,15 +9,19 @@ import {Keg} from './keg.model';
 
 export class PricePipe implements PipeTransform{
   transform(input: Keg[], args){
-    var desiredPrice = args[0];
-    if(desiredPrice === "underFive"){
+    var desiredFilter = args[0];
+    if(desiredFilter === "underFive"){
       return input.filter((keg) => {
         return keg.price <= 5;
       });
-    } else if (desiredPrice === "underEight"){
+    } else if (desiredFilter === "strong"){
       return input.filter((keg) => {
-        return keg.price <= 8;
-      });
+        return keg.abv >= 6;
+    });
+  } else if (desiredFilter === "weak"){
+      return input.filter((keg) => {
+        return keg.abv < 6;
+    });
     } else {
       return input;
     }

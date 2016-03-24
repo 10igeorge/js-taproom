@@ -16,9 +16,10 @@ import {PricePipe} from './price.pipe';
   template:`
     <div class="container">
       <select (change)="onChange($event.target.value)">
-        <option value="all" selected="selected">All Prices</option>
+        <option value="all" selected="selected">All Kegs</option>
         <option value="underFive">Under $5</option>
-        <option value="underEight">Under $8</option>
+        <option value="strong">High ABV</option>
+        <option value="weak">Low ABV</option>
       </select>
       <keg-display *ngFor="#currentKeg of kegList | price: filterPrice" (click)="kegClicked(currentKeg)" [class.selected]="currentKeg === selectedKeg" [keg]="currentKeg">
       </keg-display>

@@ -10,7 +10,7 @@ import { Keg } from './keg.model';
 })
 
 export class SellPintComponent {
-  // sellPint(){
-  //
-  // }
+  sellPint(){
+
+  }
 }
